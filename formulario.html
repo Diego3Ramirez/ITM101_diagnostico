@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Ejercicio Diagnostico</h1>
+    <br>
+ 
+    <form>
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre"> 
+        </div>
+        <br>
+        <div>
+            <label for="email">Correo Electronico</label>
+            <input type="text" id="email">
+        </div>
+        <br>
+        <div>
+            <label for="edad">Edad</label>
+            <input type="number" id="edad">
+        </div>
+        <br>
+    </form>
+
+    <button onclick="boton()">Guardar</button>
+    <br>
+
+    <h3>Tabla de Usuarios</h3>
+    <table id="tablaUsuarios">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo Electrónico</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    
+    <script>
+        function boton(){
+            //tomar datos del form 
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const edad = document.getElementById('edad').value;
+            //tomar la estructura tabla 
+            const table = document.getElementById('tablaUsuarios').getElementsByTagName('tbody')[0];
+            //crear fila nueva
+            const newRow = table.insertRow();
+            //insertar datos
+            const NombreC = newRow.insertCell(0);
+            const emailC = newRow.insertCell(1);
+            const edadC = newRow.insertCell(2);
+            //colocar por orden
+            NombreC.textContent = nombre;
+            emailC.textContent = email;
+            edadC.textContent = edad;
+        }
+    </script>
+</body>
+</html>
